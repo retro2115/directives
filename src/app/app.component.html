@@ -1,14 +1,15 @@
+
 <nav aria-label="Page navigation example">
 	<ul class="pagination">
 		<li class="page-item"
 		[ngClass]="{disabled: currentPage === 0}">
-			<a href="" class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
+			<a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
 		</li>
 
 	  	<li class="page-item" *ngFor="let image of images; let i = index"
 		[ngClass]="{active: i === currentPage}"
 		>
-			<a (click)="currentPage = i" class="page-link" href="#">{{i + 1}}</a>
+			<a (click)="currentPage = i" class="page-link">{{i + 1}}</a>
 		</li>
 
 		<li class="page-item" [ngClass]="{disabled: currentPage === images.length - 1 }">
@@ -21,3 +22,30 @@
 		<h4>{{ images[currentPage].title }}</h4>
 		<img [src]="images[currentPage].url">
 	</div>
+<!--
+<nav>
+	<ul class="pagination">
+	  <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+		<a class="page-link" (click)="currentPage = currentPage - 1">Prev</a>
+	  </li>
+	  <li
+		class="page-item"
+		[ngClass]="{ active: i === currentPage }"
+		*ngFor="let image of images; let i = index"
+	  >
+		<a (click)="currentPage = i" class="page-link">{{ i + 1 }}</a>
+	  </li>
+	  <li
+		class="page-item"
+		[ngClass]="{ disabled: currentPage === images.length - 1 }"
+	  >
+		<a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+	  </li>
+	</ul>
+  </nav>
+  
+  <div>
+	<h4>{{ images[currentPage].title }}</h4>
+	<img [src]="images[currentPage].url" />
+  </div>
+  -->
